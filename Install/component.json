@@ -1,0 +1,92 @@
+{
+	"name" : "Accounting Accounts Hierarchies",
+	"route" : "accounting/tools/accountshierarchies",
+	"description" : "<p>Component to manage accounts hierarchies. These are predefined hierarchy that can be modified as per your need.</p>",
+	"module_type" : "components",
+	"app_type" : "fintech",
+	"category" : "admin",
+	"version" : "0.0.0",
+	"repo" : "https://github.com/sp-fintech/fintech-components-admin-accountingtoolsaccountshierarchies",
+	"class" : "Apps\\Fintech\\Components\\Accounting\\Tools\\Accountshierarchies\\AccountshierarchiesComponent",
+	"dependencies" : 
+	{
+		"core" : 
+		{
+			"name" : "Core",
+			"version" : "0.0.0-rc.14",
+			"repo" : "https://github.com/sp-framework/core"
+		},
+		"apptype" : 
+		{
+			"name" : "Fintech",
+			"version" : "0.3.0",
+			"repo" : "https://github.com/sp-fintech/fintech"
+		},
+		"packages" : 
+		[
+			{
+				"name" : "AccountingToolsAccountshierarchies",
+				"version" : "0.0.0",
+				"repo" : "https://github.com/sp-fintech/fintech-packages-tools-accountingtoolsaccountshierarchies"
+			},
+			
+			{
+				"name" : "AccountingAccounts",
+				"version" : "0.0.0",
+				"repo" : "https://github.com/sp-fintech/fintech-packages-tools-accountingaccounts"
+			}
+		],
+		"middlewares" : [],
+		"views" : 
+		[
+			{
+				"name" : "AccountingToolsAccountshierarchies",
+				"version" : "0.0.0",
+				"repo" : "https://github.com/sp-fintech/fintech-views-admin-default-accountingtoolsaccountshierarchies"
+			}
+		],
+		"externals" : 
+		{
+			"composer" : 
+			{
+				"require" : []
+			},
+			"config" : 
+			{
+				"allow-plugins" : []
+			},
+			"extra" : 
+			{
+				"patches" : []
+			}
+		}
+	},
+	"menu" : 
+	{
+		"accounting" : 
+		{
+			"title" : "accounting",
+			"icon" : "circle-dollar-to-slot",
+			"childs" : 
+			{
+				"tools" : 
+				{
+					"title" : "tools",
+					"icon" : "cog",
+					"childs" : 
+					{
+						"accountshierarchies" : 
+						{
+							"title" : "accounts hierarchies",
+							"icon" : "folder-tree",
+							"link" : "accounting/tools/accountshierarchies"
+						}
+					}
+				}
+			}
+		},
+		"seq" : "0"
+	},
+	"settings" : [],
+	"widgets" : []
+}
