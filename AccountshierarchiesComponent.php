@@ -3,6 +3,7 @@
 namespace Apps\Fintech\Components\Accounting\Tools\Accountshierarchies;
 
 use Apps\Fintech\Packages\Accounting\Accounts\AccountingAccounts;
+use Apps\Fintech\Packages\Accounting\Banks\AccountingBanks;
 use Apps\Fintech\Packages\Accounting\Tools\Accountshierarchies\AccountingToolsAccountshierarchies;
 use Apps\Fintech\Packages\Adminltetags\Traits\DynamicTable;
 use System\Base\BaseComponent;
@@ -13,11 +14,17 @@ class AccountshierarchiesComponent extends BaseComponent
 
     protected $hierarchiesPackage;
 
+    protected $accountsPackage;
+
+    protected $banksPackage;
+
     public function initialize()
     {
         $this->hierarchiesPackage = $this->usePackage(AccountingToolsAccountshierarchies::class);
 
         $this->accountsPackage = $this->usePackage(AccountingAccounts::class);
+
+        $this->banksPackage = $this->usePackage(AccountingBanks::class);
     }
 
     /**
@@ -26,6 +33,8 @@ class AccountshierarchiesComponent extends BaseComponent
     public function viewAction()
     {
         if (isset($this->getData()['id'])) {
+            $this->view->banks = $this->banksPackage->getAll()->accountingbanks;
+
             $this->view->accountsStructure = [];
 
             $this->view->acTypes = $this->accountsPackage->getAvailableAccountTypes();
